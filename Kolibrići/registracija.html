@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Pick-a-Book</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="unos.css">
+</head>
+<style>
+	body{
+	 background-image: url("poz2.jpg");
+	 background-size: 1800px 1000px;
+	}
+	
+	.wrapper{
+		max-width:900px;
+		margin:0 auto;
+	}
+	.logo{
+		width:100%;
+		float:left;
+		background:white;
+
+	}
+	.slika1{
+		width:30%;
+		float:left;
+		background:white;
+		
+	}
+	.slika1 img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width:45%;
+	}
+	.slika2{
+		width:68%;
+		float:left;
+		background:white;
+	}
+	.slika2 img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width:100%;
+	}
+	
+	.registracija{
+		width:100%;
+		float:right;
+		padding:0px 20px 15px 20px;
+		background:white;
+		clear:both;
+		font-family:arial;
+	}
+	.button {
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: #4da6ff;
+	  border: none;
+	  color: white;
+	  text-align: center;
+	  font-size: 16px;
+	  padding: 6px;
+	  width: 180px;
+	  transition: all 0.5s;
+	  cursor: pointer;
+	  margin: 5px;
+	  float:right;
+	}
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color:#4da6ff;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+	float:left;
+	}
+	
+	li {
+		float:left;
+		width:25%;
+	}
+
+	li a {
+		display: block;
+		color: white;
+		padding: 15px 0px;
+		text-decoration: none;
+		width:100%;
+		text-align: center;
+		font-size: 18px;
+		font-family:Arial;
+	}
+
+	li a.active {
+		background-color: white;
+		color: #4da6ff;
+	}
+
+	li a:hover:not(.active) {
+		color: #4da6ff;
+		background-color:white;
+	}
+	main{
+		width:100%;
+		clear:both;
+		background:white;
+		padding:20px 0px;
+	}
+	mySlides {display:none;}
+	.search{
+		width:100%;
+		clear:both;
+		display: block;
+		
+		
+	}
+	.search img {
+		width:35px;
+		height:35px;
+	}
+	form{
+	width:100%;
+	}
+	input{
+	width:100%;
+	}
+</style>
+<body>
+	<div class="wrapper">
+		<header>
+			<div class="logo">
+				<div class="slika1">
+					<img src="novo1.jpg"/>
+				</div>
+				<div class="slika2">
+					<img src="logo2.jpg"/>
+				</div>
+			</div>
+			
+			<div class="registracija">
+				<a href="login.html"><input class="button" type="submit" value="Prijava" /></a>
+				<a href="registracija.html"><input class="button" type="submit" value="Registracija" /></a>
+			</div>
+			
+			<nav class="gornji">
+				<ul>
+					<li><a class="active" href="Kolibrici.html">PRETRAŽI</a></li>
+					<li><a href="#">KNJIŽARE</a></li>
+					<li><a href="#">KATEGORIJE</a></li>
+					<li><a href="#">NOVO</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<article id="registracija">
+				<h2>Registracija: </h2>
+				<form name="registracijaKorisnika" action="registracija.php" method="POST">
+					<span id="porukaIme"></span>
+					<input type="text" name="punoImeKorisnika" id="punoImeKorisnika" placeholder="Ime"/>
+					<br>
+					<span id="porukaNadimak"></span>
+					<input type="text" name="imeKorisnika" id="imeKorisnika" placeholder="Nadimak"/>
+					<br>
+					<span id="porukaLozinka"></span>
+					<input type="password" name="lozinkaKorisnika" id="lozinkaKorisnika" placeholder="Lozinka"/>
+					<br>
+					<span id="porukaLozinkaProvjera"></span>
+					<input type="password" name="lozinkaKorisnikaProvjera" id="lozinkaKorisnikaProvjera" placeholder="Ponovite lozinku"/>
+					<br>
+					<input type="submit" id="slanje" name="registracija" value="Prijava">
+				</form>
+			</article>
+			<script type="text/javascript">
+
+		document.getElementById("slanje").onclick = function(event) {
+
+			var slanjeForme = true;
+
+			// Ime korisnika mora biti uneseno
+			var poljePunoImeKorisnika = document.getElementById("punoImeKorisnika");
+			var punoImeKorisnika = document.getElementById("punoImeKorisnika").value;
+			if (punoImeKorisnika.length == 0) {
+				slanjeForme = false;
+				poljePunoImeKorisnika.style.border="1px dashed #fff";
+				document.getElementById("porukaIme").innerHTML="Unesite ime!<br>";
+			} else {
+				poljePunoImeKorisnika.style.border="1px solid rgba(0,0,0,0.7)";
+				document.getElementById("porukaIme").innerHTML="";
+			}
+
+			// Nadimak korisnika mora biti unesen
+			var poljeImeKorisnika = document.getElementById("imeKorisnika");
+			var imeKorisnika = document.getElementById("imeKorisnika").value;
+			if (imeKorisnika.length == 0) {
+				slanjeForme = false;
+				poljeImeKorisnika.style.border="1px dashed #fff";
+				document.getElementById("porukaNadimak").innerHTML="Unesite nadimak!<br>";
+			} else {
+				poljeImeKorisnika.style.border="1px solid rgba(0,0,0,0.7)";
+				document.getElementById("porukaNadimak").innerHTML="";
+			}
+
+			// Provjera podudaranja lozinki
+			var poljeLozinkaKorisnika = document.getElementById("lozinkaKorisnika");
+			var lozinkaKorisnika = document.getElementById("lozinkaKorisnika").value;
+			var poljeLozinkaKorisnikaProvjera = document.getElementById("lozinkaKorisnikaProvjera");
+			var lozinkaKorisnikaProvjera = document.getElementById("lozinkaKorisnikaProvjera").value;
+			if (lozinkaKorisnika.length == 0 || lozinkaKorisnikaProvjera.length == 0 || lozinkaKorisnika != lozinkaKorisnikaProvjera) {
+				slanjeForme = false;
+				poljeLozinkaKorisnika.style.border="1px dashed #fff";
+				poljeLozinkaKorisnikaProvjera.style.border="1px dashed #fff";
+				document.getElementById("porukaLozinka").innerHTML="Lozinke nisu iste!<br>";
+				document.getElementById("porukaLozinkaProvjera").innerHTML="Lozinke nisu iste!<br>";
+			} else {
+				poljeLozinkaKorisnika.style.border="1px solid rgba(0,0,0,0.7)";
+				poljeLozinkaKorisnikaProvjera.style.border="1px solid rgba(0,0,0,0.7)";
+				document.getElementById("porukaLozinka").innerHTML="";
+				document.getElementById("porukaLozinkaProvjera").innerHTML="";
+			}
+
+			if (slanjeForme != true) {
+				event.preventDefault();
+			}
+
+		};
+
+	</script>
+	</div>
+</body>
+</html>
