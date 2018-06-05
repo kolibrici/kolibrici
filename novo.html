@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Pick-a-Book</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<style>
+	body{
+	 background-image: url("poz2.jpg");
+	 background-size: 1800px 1000px;
+	}
+	
+	.wrapper{
+		max-width:900px;
+		margin:0 auto;
+	}
+	.logo{
+		width:100%;
+		float:left;
+		background:white;
+
+	}
+	.slika1{
+		width:30%;
+		float:left;
+		background:white;
+		
+	}
+	.slika1 img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width:45%;
+	}
+	.slika2{
+		width:68%;
+		float:left;
+		background:white;
+	}
+	.slika2 img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width:100%;
+	}
+	
+	.registracija{
+		width:100%;
+		float:right;
+		padding:0px 20px 15px 20px;
+		background:white;
+		clear:both;
+		font-family:arial;
+	}
+	.button {
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: #4da6ff;
+	  border: none;
+	  color: white;
+	  text-align: center;
+	  font-size: 16px;
+	  padding: 6px;
+	  width: 180px;
+	  transition: all 0.5s;
+	  cursor: pointer;
+	  margin: 5px;
+	  float:right;
+	}
+	.gornji ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color:#4da6ff;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+	float:left;
+	}
+	
+	.gornji li {
+		float:left;
+		width:25%;
+	}
+
+	.gornji li a {
+		display: block;
+		color: white;
+		padding: 15px 0px;
+		text-decoration: none;
+		width:100%;
+		text-align: center;
+		font-size: 18px;
+		font-family:Arial;
+	}
+
+	.gornji li a.active {
+		background-color: white;
+		color: #4da6ff;
+	}
+
+	.gornji li a:hover:not(.active) {
+		color: #4da6ff;
+		background-color:white;
+	}
+	main{
+		width:100%;
+		clear:both;
+		background:white;
+		padding:20px 0px;
+		float:left;
+	}
+	.mjesec img{
+	float:left;
+	width:40%;
+	padding:0px 0px 10px 20px;}
+	
+	.tekst{
+		float:left;
+		width:55%:
+		text-align:center;
+		font-family:Arial;
+	}
+	.tekst ul{
+	list-style-type: none;}
+
+</style>
+<body>
+	<div class="wrapper">
+		<header>
+			<div class="logo">
+				<div class="slika1">
+					<img src="novo1.jpg"/>
+				</div>
+				<div class="slika2">
+					<img src="logo2.jpg"/>
+				</div>
+			</div>
+			
+			<div class="registracija">
+				<input class="button" type="submit" value="Prijava" />
+				<input class="button" type="submit" value="Registracija" />
+			</div>
+			
+			<nav class="gornji">
+				<ul>
+					<li><a href="#">PRETRAŽI</a></li>
+					<li><a href="#">KNJIŽARE</a></li>
+					<li><a href="#">KATEGORIJE</a></li>
+					<li><a class="active" href="novo.html">NOVO</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main align="center">
+		<h2 style="font-family:arial;"><b>Bestseller mjeseca</b></h2>
+			<div class="mjesec">
+				<img src="novo_slika1.png"/>
+				<div class="tekst">
+						<h4><b>Knjižare: </b></h4><br/>
+						<ul>
+							<li><b>Knjižara ljevak</b></li>
+								<ul>
+									<li>Dostupna!</li>
+									<li><b>Cijena:</b> 103,20kn</li>
+									<li><b>Primjeraka ostalo:</b> 15</li>
+									<li><b>Adresa:</b> Ulica grada Vukovara 271/12, 10000 Zagreb</li>
+									<li><b>Broj:</b>385 (0) 1 4812 992 </li>
+								</ul><br/><br/>
+							<li><b>Outlet knjižara</b></li>
+								<ul>
+									<li>Dostupna!</li>
+									<li><b>Cijena:</b> 150,67kn</li>
+									<li><b>Primjeraka ostalo:</b> 51</li>
+									<li><b>Adresa:</b> Savska cesta 95, 10000, Zagreb</li>
+									<li><b>Broj: </b>385 (0) 1 7794 884 </li>
+								</ul>
+						</ul>
+				</div>
+				
+			</div>
+		</main>
+		
+	<script>
+			var myIndex = 0;
+			carousel();
+
+			function carousel() {
+				var i;
+				var x = document.getElementsByClassName("mySlides");
+				for (i = 0; i < x.length; i++) {
+				   x[i].style.display = "none";  
+				}
+				myIndex++;
+				if (myIndex > x.length) {myIndex = 1}    
+				x[myIndex-1].style.display = "block";  
+				setTimeout(carousel, 2000); // Change image every 2 seconds
+			}
+	</script>
+	</div>
+</body>
+</html>
